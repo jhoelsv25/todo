@@ -2,7 +2,7 @@
   @for (task of tasks(); track task.id) {
   <li
     (dblclick)="editTask(task)"
-    class="flex gap-3 px-5 pr-10 py-2.5 items-center hover:bg-zinc-700/30 border-b border-gray-600 group"
+    class="relative flex gap-3 px-5 pr-10 py-2.5 items-center hover:bg-zinc-700/30 border-b border-gray-600 group"
   >
     <input
       (change)="taskCompleted(task)"
