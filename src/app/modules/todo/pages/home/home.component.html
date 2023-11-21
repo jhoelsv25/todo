@@ -1,0 +1,20 @@
+<section class="relative h-full w-full">
+  <picture class="absolute top-0 w-full">
+    <img src="assets/bg-dark.webp" alt="" class="w-full min-w-max" />
+  </picture>
+  <article
+    class="w-full absolute top-20 min-h-screen flex flex-col items-center gap-5"
+  >
+    <header class="flex justify-center">
+      <h1 class="text-4xl text-white font-bold">Todo</h1>
+    </header>
+    <section class="flex w-4/12 max-lg:w-1/2 max-md:w-full flex-col px-5 gap-5">
+      <add-task class="w-full"></add-task>
+
+      <div class="bg-zinc-800 rounded-md">
+        <list-task class="w-full"></list-task>
+        <filter-task></filter-task>
+      </div>
+    </section>
+  </article>
+</section>

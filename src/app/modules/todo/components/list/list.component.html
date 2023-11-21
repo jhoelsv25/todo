@@ -1,0 +1,48 @@
+<ul class="rounded-md bg-zinc-800 relative">
+  @for (task of tasks(); track task.id) {
+  <li
+    (dblclick)="editTask(task)"
+    class="flex gap-3 px-5 pr-10 py-2.5 items-center hover:bg-zinc-700/30 border-b border-gray-600 group"
+  >
+    <input
+      (change)="taskCompleted(task)"
+      [checked]="task.completed"
+      type="checkbox"
+      class="w-5 h-5 bg-blue-500 border-gray-300 rounded focus:ring-blue-500 checked:bg-blue-500 checked:border-transparent focus:outline-none"
+    />
+    <div class="w-full">
+      <input
+        class="text-gray-400"
+        (keyup.enter)="updateTask(task, $event)"
+        [value]="task.title"
+        [attr.disabled]="task.editing ? null : true"
+        class="focus:outline-none border-none w-full mr-3 bg-transparent text-gray-400 truncate focus:text-gray-100 enabled:bg-black/25 rounded-md py-1.5"
+      />
+    </div>
+    <span
+      (click)="deleteTask(task)"
+      class="text-gray-400 absolute hover:text-blue-500 top-0 right-2 cursor-pointer opacity-0 group-hover:opacity-100 transition-all translate-y-0 group-hover:translate-y-4 duration-300"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.2em"
+        height="1.2em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+          d="M9.172 14.828L12.001 12m2.828-2.828L12.001 12m0 0L9.172 9.172M12.001 12l2.828 2.828M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10Z"
+        /></svg
+    ></span>
+  </li>
+  }@empty {
+  <li class="flex justify-center items-center h-20 text-gray-400">
+    <span class="text-2xl font-bold text-center"
+      >You do not have tasks. <br />Add one</span
+    >
+  </li>
+  }
+</ul>
